@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void generateEvenSeries(int n) {
+    int i;
+    for (i = 2; i <= n; i += 2) {
+        printf("%d ", i);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Even number series from 2 to %d: ", n);
+    generateEvenSeries(n);
+
+    return 0;
+}
