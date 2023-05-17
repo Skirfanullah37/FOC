@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void generateSeries(int n) {
+    int i;
+    for (i = 1; i <= n; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    printf("Number series from 1 to %d: ", n);
+    generateSeries(n);
+
+    return 0;
+}
