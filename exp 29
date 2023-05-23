@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateFactorial(int n) {
+    double fact = 1.0;
+    for (int i = 2; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+double calculateExponentialSeries(double x, int terms) {
+    double exponential = 1.0;
+    int sign = -1;
+    for (int i = 1; i <= terms; i++) {
+        double term = pow(x, i) / calculateFactorial(i);
+        exponential += sign * term;
+        sign *= -1;
+    }
+    return exponential;
+}
+
+int main() {
+    double x, result;
+    int numTerms;
+
+    printf("Enter the value of x: ");
+    scanf("%lf", &x);
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &numTerms);
+
+    result = calculateExponentialSeries(x, numTerms);
+
+    printf("The exponential series of %.2f using %d terms is: %.6f\n", x, numTerms, result);
+
+    return 0;
+}
