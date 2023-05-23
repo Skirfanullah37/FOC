@@ -1,0 +1,38 @@
+ #include <stdio.h>
+#include <math.h>
+
+double calculateFactorial(int n) {
+    double fact = 1.0;
+    for (int i = 2; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+double calculateCosineSeries(double x, int terms) {
+    double cosine = 1.0;
+    int sign = -1;
+    for (int i = 2; i <= 2 * terms; i += 2) {
+        double term = pow(x, i) / calculateFactorial(i);
+        cosine += sign * term;
+        sign *= -1;
+    }
+    return cosine;
+}
+
+int main() {
+    double angle, result;
+    int numTerms;
+
+    printf("Enter the angle in radians: ");
+    scanf("%lf", &angle);
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &numTerms);
+
+    result = calculateCosineSeries(angle, numTerms);
+
+    printf("The cosine of %.2f radians using %d terms is: %.6f\n", angle, numTerms, result);
+
+    return 0;
+}
